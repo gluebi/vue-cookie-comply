@@ -1,7 +1,7 @@
 {
   "name": "vue-cookie-comply-with-reject",
   "description": "A Vue 3 component to handle cookie acceptance on your website",
-  "version": "0.1.1",
+  "version": "0.1.2-beta.1",
   "files": [
     "dist"
   ],
@@ -29,9 +29,16 @@
     "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "vue": "3.x"
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "dependencies": {
-    "body-scroll-lock": "^3.1.5"
+    "body-scroll-lock": "^3.1.5",
+    "vue-demi": "^0.13.11"
   }
 }
