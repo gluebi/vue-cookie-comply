@@ -2,7 +2,7 @@
 
 [//]: # (Insert on Made with vue!)
 
-> A Vue 3 compatible component to handle cookie consent based off https://github.com/yaiks/vue-cookie-comply
+> A Vue 2 compatible component to handle cookie consent based off https://github.com/yaiks/vue-cookie-comply
 
 ## Features
 
@@ -11,7 +11,7 @@
 - 👐 Emit events on user actions so you can use your handlers
 - 📱 Default responsive layout
 - 🗄️ Highly customizable through **slots**
-- 🚪 Usage of Vue 3 **Teleport** to render the modal anywhere in your app
+- 🚪 Usage of [vue-simple-portal](https://github.com/LinusBorg/vue-simple-portal) to render the modal in the body
 - 💅 Write your own CSS or use the default styles
 - Locks scrolling until the user has made a decision
 
@@ -19,7 +19,7 @@
 
 ## Installation
 
-> This package is only compatible with Vue 3.x
+> This package is only compatible with Vue 2.x
 
 First install `vue-cookie-comply` as a dependency of your Vue app:
 
@@ -140,10 +140,6 @@ Each object is a section of the **preference's modal**. Each section consists of
   - value: value to be dispatched once the user select this option
   - isEnable: if `true`, means the options will be enabled when the user first opens the modal. It defaults to `false`
   - isRequired: if `true`, means the preference is obligatory and such cookies _cannot be opted out_
-
-### target
-
-A string in form of a **css selector** to target where the preference modal will be placed in your app. It is used for the `Teleport` feature of Vue 3. It defaults to `body`, but you can attach any selector such as `#app`, `.my-class`, etc...
 
 ## Events
 
