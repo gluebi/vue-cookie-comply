@@ -4,6 +4,6 @@ export default {
   install: (Vue) => {
     if (!window) return;
 
-    Vue.component(CookieComply)
+    Vue.component('VueCookieComply', CookieComply)
   },
 };
