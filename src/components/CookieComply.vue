@@ -34,7 +34,7 @@
       </cookie-comply-button>
     </div>
 
-    <Teleport :to="target">
+    <Portal>
       <cookie-comply-modal
         v-if="isModalOpen"
         :preferences="preferences"
@@ -59,7 +59,7 @@
           <slot name="modal-footer"></slot>
         </template>
       </cookie-comply-modal>
-    </Teleport>
+    </Portal>
   </aside>
   <aside
     v-if="showEditButton && !showCookieComply"
@@ -72,7 +72,7 @@
       <img :src="editCookieIconPath" alt="edit cookies">
     </cookie-comply-button>
 
-    <Teleport :to="target">
+    <Portal>
       <cookie-comply-modal
         v-if="isModalOpen"
         :preferences="preferences"
@@ -97,7 +97,7 @@
           <slot name="modal-footer"></slot>
         </template>
       </cookie-comply-modal>
-    </Teleport>
+    </Portal>
   </aside>
 </template>
 
@@ -106,10 +106,11 @@ import CookieComplyModal from './CookieComplyModal.vue';
 import CookieComplyButton from './CookieComplyButton.vue';
 import { getConsentValuesFromStorage } from '../shared/storageUtils';
 import { scrollLock } from '../directives/scroll-lock';
+import { Portal } from '@linusborg/vue-simple-portal'
 
 export default {
   name: 'CookieComply',
-  components: { CookieComplyModal, CookieComplyButton },
+  components: { CookieComplyModal, CookieComplyButton, Portal },
   directives: {
     'scroll-lock': scrollLock
   },

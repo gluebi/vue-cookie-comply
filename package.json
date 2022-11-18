@@ -19,26 +19,19 @@
     "url": "https://github.com/gluebi/vue-cookie-comply-with-reject/"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.2.0",
-    "@vue/compiler-sfc": "^3.2.45",
+    "@linusborg/vue-simple-portal": "^0.1.5",
+    "@vitejs/plugin-vue2": "^2.0.1",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^9.7.0",
     "prettier": "^2.7.1",
     "vite": "^3.2.4",
-    "vue": "^3.2.45"
+    "vue": "^2.7.14"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
+    "vue": "^2.0.0"
   },
   "dependencies": {
-    "body-scroll-lock": "^3.1.5",
-    "vue-demi": "^0.13.11"
+    "body-scroll-lock": "^3.1.5"
   }
 }
