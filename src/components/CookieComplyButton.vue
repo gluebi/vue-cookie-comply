@@ -10,10 +10,10 @@ export default {
   props: {
     className: { type: String, required: false, default: '' },
   },
-  emits: ['handleClick'],
+  emits: ['handle-click'],
   methods: {
     handleClick() {
-      this.$emit('handleClick');
+      this.$emit('handle-click');
     },
   },
 };

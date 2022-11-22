@@ -16,7 +16,7 @@
         </header>
 
         <main class="cookie-comply__modal-content">
-          <template
+          <div
             v-for="(preference, index) in preferences"
             :key="index"
           >
@@ -45,7 +45,7 @@
                 />
               </div>
             </slot>
-          </template>
+          </div>
         </main>
 
         <footer class="cookie-comply__modal-footer">
@@ -70,7 +70,7 @@
 <script>
 import CookieComplyButton from './CookieComplyButton.vue';
 import CookieComplySwitch from './CookieComplySwitch.vue';
-import { getConsentValuesFromStorage } from "../shared/storageUtils";
+import getConsentValuesFromStorage from "../shared/storageUtils";
 
 export default {
   name: 'CookieComplyModal',

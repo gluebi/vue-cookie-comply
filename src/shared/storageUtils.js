@@ -12,4 +12,4 @@ const getConsentValuesFromStorage = () => {
   return JSON.parse(cookieComply);
 };
 
-export { getConsentValuesFromStorage };
+export default getConsentValuesFromStorage;

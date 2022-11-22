@@ -106,8 +106,8 @@
 <script>
 import CookieComplyModal from './CookieComplyModal.vue';
 import CookieComplyButton from './CookieComplyButton.vue';
-import { getConsentValuesFromStorage } from '../shared/storageUtils';
-import { scrollLock } from '../directives/scroll-lock';
+import getConsentValuesFromStorage from '../shared/storageUtils';
+import scrollLock from '../directives/scroll-lock';
 import { Portal } from '@linusborg/vue-simple-portal'
 
 export default {

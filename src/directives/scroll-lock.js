@@ -22,4 +22,4 @@ const scrollLock = {
   },
 };
 
-export { scrollLock };
+export default scrollLock;
