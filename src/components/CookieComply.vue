@@ -1,104 +1,106 @@
 <template>
-  <div
-    v-if="greyOutBody && showCookieComply"
-    class="cookie-comply-body-grey-out"
-  />
-  <aside
-    v-if="showCookieComply"
-    v-scroll-lock="showCookieComply"
-    class="cookie-comply"
-    :class="{ 'cookie-comply--modal-open': isModalOpen }"
-  >
-    <div class="cookie-comply__header">
-      <slot name="header">
-        <h3 class="cookie-comply__header-title">{{ headerTitle }}</h3>
-        <p
-          class="cookie-comply__header-description"
-          v-html="headerDescription"
-        />
-      </slot>
-    </div>
-
-    <div class="cookie-comply__actions">
-      <cookie-comply-button @handle-click="handleRejectAll">
-        {{ rejectAllLabel }}
-      </cookie-comply-button>
-      <cookie-comply-button @handle-click="openPreferences">
-        {{ preferencesLabel }}
-      </cookie-comply-button>
-      <cookie-comply-button
-        class-name="cookie-comply__button-accept"
-        @handle-click="handleAcceptAll"
-      >
-        {{ acceptAllLabel }}
-      </cookie-comply-button>
-    </div>
-
-    <Portal>
-      <cookie-comply-modal
-        v-if="isModalOpen"
-        :preferences="preferences"
-        :show-accept-all-in-modal="showAcceptAllInModal"
-        @cookie-comply-save="onSave"
-        @cookie-comply-accept-all="handleAcceptAll"
-        @cookie-comply-close="isModalOpen = false"
-      >
-        <template #modal-header>
-          <slot name="modal-header"></slot>
-        </template>
-
-        <template #modal-body="{ preference, index }">
-          <slot
-            name="modal-body"
-            :preference="preference"
-            :index="index"
-          ></slot>
-        </template>
-
-        <template #modal-footer>
-          <slot name="modal-footer"></slot>
-        </template>
-      </cookie-comply-modal>
-    </Portal>
-  </aside>
-  <aside
-    v-if="showEditButton && !showCookieComply"
-    class="cookie-comply-edit"
-  >
-    <cookie-comply-button
-      class-name="cookie-comply__edit-button"
-      @handle-click="openPreferences"
+  <div>
+    <div
+      v-if="greyOutBody && showCookieComply"
+      class="cookie-comply-body-grey-out"
+    />
+    <aside
+      v-if="showCookieComply"
+      v-scroll-lock="showCookieComply"
+      class="cookie-comply"
+      :class="{ 'cookie-comply--modal-open': isModalOpen }"
     >
-      <img :src="editCookieIconPath" alt="edit cookies">
-    </cookie-comply-button>
+      <div class="cookie-comply__header">
+        <slot name="header">
+          <h3 class="cookie-comply__header-title">{{ headerTitle }}</h3>
+          <p
+            class="cookie-comply__header-description"
+            v-html="headerDescription"
+          />
+        </slot>
+      </div>
 
-    <Portal>
-      <cookie-comply-modal
-        v-if="isModalOpen"
-        :preferences="preferences"
-        :show-accept-all-in-modal="showAcceptAllInModal"
-        @cookie-comply-save="onSave"
-        @cookie-comply-accept-all="handleAcceptAll"
-        @cookie-comply-close="isModalOpen = false"
+      <div class="cookie-comply__actions">
+        <cookie-comply-button @handle-click="handleRejectAll">
+          {{ rejectAllLabel }}
+        </cookie-comply-button>
+        <cookie-comply-button @handle-click="openPreferences">
+          {{ preferencesLabel }}
+        </cookie-comply-button>
+        <cookie-comply-button
+          class-name="cookie-comply__button-accept"
+          @handle-click="handleAcceptAll"
+        >
+          {{ acceptAllLabel }}
+        </cookie-comply-button>
+      </div>
+
+      <Portal>
+        <cookie-comply-modal
+          v-if="isModalOpen"
+          :preferences="preferences"
+          :show-accept-all-in-modal="showAcceptAllInModal"
+          @cookie-comply-save="onSave"
+          @cookie-comply-accept-all="handleAcceptAll"
+          @cookie-comply-close="isModalOpen = false"
+        >
+          <template #modal-header>
+            <slot name="modal-header"></slot>
+          </template>
+
+          <template #modal-body="{ preference, index }">
+            <slot
+              name="modal-body"
+              :preference="preference"
+              :index="index"
+            ></slot>
+          </template>
+
+          <template #modal-footer>
+            <slot name="modal-footer"></slot>
+          </template>
+        </cookie-comply-modal>
+      </Portal>
+    </aside>
+    <aside
+      v-if="showEditButton && !showCookieComply"
+      class="cookie-comply-edit"
+    >
+      <cookie-comply-button
+        class-name="cookie-comply__edit-button"
+        @handle-click="openPreferences"
       >
-        <template #modal-header>
-          <slot name="modal-header"></slot>
-        </template>
+        <img :src="editCookieIconPath" alt="edit cookies">
+      </cookie-comply-button>
 
-        <template #modal-body="{ preference, index }">
-          <slot
-            name="modal-body"
-            :preference="preference"
-            :index="index"
-          ></slot>
-        </template>
+      <Portal>
+        <cookie-comply-modal
+          v-if="isModalOpen"
+          :preferences="preferences"
+          :show-accept-all-in-modal="showAcceptAllInModal"
+          @cookie-comply-save="onSave"
+          @cookie-comply-accept-all="handleAcceptAll"
+          @cookie-comply-close="isModalOpen = false"
+        >
+          <template #modal-header>
+            <slot name="modal-header"></slot>
+          </template>
 
-        <template #modal-footer>
-          <slot name="modal-footer"></slot>
-        </template>
-      </cookie-comply-modal>
-    </Portal>
-  </aside>
+          <template #modal-body="{ preference, index }">
+            <slot
+              name="modal-body"
+              :preference="preference"
+              :index="index"
+            ></slot>
+          </template>
+
+          <template #modal-footer>
+            <slot name="modal-footer"></slot>
+          </template>
+        </cookie-comply-modal>
+      </Portal>
+    </aside>
+  </div>
 </template>
 
 <script>
