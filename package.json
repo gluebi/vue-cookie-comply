@@ -32,6 +32,6 @@
     "vue": "3.2"
   },
   "dependencies": {
-    "@vueuse/core": "10.0.0-beta.2"
+    "@vueuse/core": "10.2.1"
   }
 }
